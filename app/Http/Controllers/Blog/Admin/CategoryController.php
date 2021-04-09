@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Blog\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RestTestController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class RestTestController extends Controller
      */
     public function index()
     {
-        dd(1);
+        //
     }
 
     /**
