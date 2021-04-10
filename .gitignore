@@ -16,3 +16,9 @@ yarn-error.log
 #PHP IDE HELPER
 .phpstorm.meta.php
 _ide_helper.php
+.idea/
+
+#docker4php
+docker.mk
+docker-compose.yml
+Makefile
