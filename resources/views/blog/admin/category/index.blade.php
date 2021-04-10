@@ -27,7 +27,7 @@
                                             {{ $item->title }}
                                         </a>
                                     </td>
-                                    <td @if(in_array($item->parent_id, [0, 1])) style="" @endif>
+                                    <td @if(in_array($item->parent_id, [0, 1])) style="color: #ccc" @endif>
                                         {{ $item->parent_id }}{{-- $item->parentCategory->title --}}
                                     </td>
                                 </tr>
@@ -38,5 +38,11 @@
                 </div>
             </div>
         </div>
+        @if($paginator->total() > $paginator->count())
+        <br>
+        <div class="row justify-content-center">
+            {{ $paginator->links() }}
+        </div>
+        @endif
     </div>
 @endsection
