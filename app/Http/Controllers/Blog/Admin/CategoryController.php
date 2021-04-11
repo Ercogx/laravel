@@ -6,7 +6,6 @@ use App\Http\Controllers\Blog\BaseController;
 use App\Http\Requests\BlogCategoryCreateRequest;
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Models\BlogCategory;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class CategoryController extends BaseController
@@ -54,6 +53,8 @@ class CategoryController extends BaseController
 
         $item = new BlogCategory($data);
         $item->save();
+
+        //$item = (new BlogCategory())->create($data);
 
         if($item) {
             return redirect()
@@ -108,7 +109,7 @@ class CategoryController extends BaseController
         }
 
         $data = $request->all();
-        $result = $item->fill($data)->save();
+        $result = $item->update($data);
 
         if($result) {
             return redirect()
