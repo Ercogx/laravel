@@ -8,10 +8,10 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    @include('blog.admin.category.include.item_edit_main_col')
+                    @include('blog.admin.categories.include.item_edit_main_col')
                 </div>
                 <div class="col-md-4">
-                    @include('blog.admin.category.include.item_edit_add_col')
+                    @include('blog.admin.categories.include.item_edit_add_col')
                 </div>
             </div>
         </div>
