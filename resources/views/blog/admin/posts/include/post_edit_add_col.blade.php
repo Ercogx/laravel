@@ -39,8 +39,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="deleted_at">Delete</label>
-                        <input id="deleted_at" type="text" value="{{ $item->deleted_at }}" class="form-control"
+                        <label for="deleted_at">Published</label>
+                        <input id="deleted_at" type="text" value="{{ $item->published_at }}" class="form-control"
                                disabled>
                     </div>
 

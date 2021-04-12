@@ -66,6 +66,7 @@
 
                             <input type="checkbox"
                                    id="is_published"
+                                   name="is_published"
                                    class="form-check-input"
                                    value="1"
                                    @if($item->is_published)
