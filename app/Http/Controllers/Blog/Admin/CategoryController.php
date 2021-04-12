@@ -102,7 +102,7 @@ class CategoryController extends BaseController
 
         $item = $this->blogCategoryRepository->getEdit($id);
         if(empty($item)){
-            abort(400);
+            abort(404);
         }
         $categoryList = $this->blogCategoryRepository->getForComboBox();
 
