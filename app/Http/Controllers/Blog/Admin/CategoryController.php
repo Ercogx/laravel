@@ -95,16 +95,16 @@ class CategoryController extends BaseController
      * @param  BlogCategoryRepository $categoryRepository
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, BlogCategoryRepository $categoryRepository)
+    public function edit($id)
     {
 //        $item = BlogCategory::findOrFail($id);
 //        $categoryList = BlogCategory::all();
 
-        $item = $categoryRepository->getEdit($id);
+        $item = $this->blogCategoryRepository->getEdit($id);
         if(empty($item)){
             abort(400);
         }
-        $categoryList = $categoryRepository->getForComboBox();
+        $categoryList = $this->blogCategoryRepository->getForComboBox();
 
         return view('blog.admin.categories.edit',
             compact('item', 'categoryList'));
@@ -129,7 +129,7 @@ class CategoryController extends BaseController
         //$validateData = $this->validate($request, $rules);
         //$validateData = $request->validate($rules);
 
-        $item = BlogCategory::find($id);
+        $item = $this->blogCategoryRepository->getEdit($id);
         if(empty($item)){
             return back()
                 ->withErrors(['msg' => "Category id=[{$id}] not found"])
