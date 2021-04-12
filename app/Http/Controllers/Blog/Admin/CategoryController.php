@@ -75,8 +75,6 @@ class CategoryController extends BaseController
         $item = new BlogCategory($data);
         $item->save();
 
-        //$item = (new BlogCategory())->create($data);
-
         if($item) {
             return redirect()
                 ->route('blog.admin.categories.edit', [$item->id])
@@ -97,9 +95,6 @@ class CategoryController extends BaseController
      */
     public function edit($id)
     {
-//        $item = BlogCategory::findOrFail($id);
-//        $categoryList = BlogCategory::all();
-
         $item = $this->blogCategoryRepository->getEdit($id);
         if(empty($item)){
             abort(404);
@@ -119,16 +114,6 @@ class CategoryController extends BaseController
      */
     public function update(BlogCategoryUpdateRequest $request, $id)
     {
-//        $rules = [
-//            'title'         => 'required|min:5|max:200',
-//            'slug'          => 'max:200',
-//            'description'   => 'string|max:500|min:3',
-//            'parent_id'     => 'required|integer|exists:blog_categories,id'
-//        ];
-
-        //$validateData = $this->validate($request, $rules);
-        //$validateData = $request->validate($rules);
-
         $item = $this->blogCategoryRepository->getEdit($id);
         if(empty($item)){
             return back()
