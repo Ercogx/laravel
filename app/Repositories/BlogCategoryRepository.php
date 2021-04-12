@@ -30,7 +30,20 @@ class BlogCategoryRepository extends CoreRepository
      */
     public function getForComboBox()
     {
-        return $this->startConditions()->all();
+        //return $this->startConditions()->all();
+
+        $fields = implode(', ', [
+            'id',
+            'CONCAT (id, ". ", title) AS id_title',
+        ]);
+
+        $result = $this
+            ->startConditions()
+            ->selectRaw($fields)
+            ->toBase()
+            ->get();
+
+        return $result;
     }
 
     /**
@@ -39,5 +52,16 @@ class BlogCategoryRepository extends CoreRepository
     protected function getModelClass()
     {
         return Model::class;
+    }
+
+    public function getAllWithPaginate($perPage = null)
+    {
+        $columns = ['id', 'title', 'parent_id'];
+
+        $result = $this
+            ->startConditions()
+            ->paginate($perPage, $columns);
+
+        return $result;
     }
 }
