@@ -15,6 +15,13 @@ class BlogPostObserver
      */
     public function creating(BlogPost $blogPost)
     {
+        $this->setPublishedAt($blogPost);
+
+        $this->setSlug($blogPost);
+
+        $this->setHtml($blogPost);
+
+        $this->setUser($blogPost);
 
     }
 
@@ -107,5 +114,13 @@ class BlogPostObserver
         if(empty($blogPost->slug)){
             $blogPost->slug = \Str::slug($blogPost->title);
         }
+    }
+
+    protected function setHtml(BlogPost $blogPost)
+    {
+    }
+
+    protected function setUser(BlogPost $blogPost)
+    {
     }
 }
