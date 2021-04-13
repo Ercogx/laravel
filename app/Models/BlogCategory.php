@@ -31,6 +31,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|BlogCategory whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogCategory whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read string $parent_title
+ * @method static \Illuminate\Database\Query\Builder|BlogCategory onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|BlogCategory withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|BlogCategory withoutTrashed()
  */
 class BlogCategory extends Model
 {
