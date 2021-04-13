@@ -116,11 +116,26 @@ class BlogPostObserver
         }
     }
 
+    /**
+     * Add  value content_html from content_raw
+     *
+     * @param BlogPost $blogPost
+     */
     protected function setHtml(BlogPost $blogPost)
     {
+        if($blogPost->isDirty('content_raw')){
+            // TODO: Generate html from markdown
+            $blogPost->content_html = $blogPost->content_raw;
+        }
     }
 
+    /**
+     * Set default user_id if not exist from const
+     *
+     * @param BlogPost $blogPost
+     */
     protected function setUser(BlogPost $blogPost)
     {
+        $blogPost->user_id = auth()->id() ?? BlogPost::UNKNOWN_USER;
     }
 }
